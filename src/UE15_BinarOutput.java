@@ -11,10 +11,11 @@ public class UE15_BinarOutput {
         File file = new File("C:\\Users\\s53036\\Desktop\\Kata\\Prog3\\uebung15.txt");
         FileOutputStream fileOutputStream = new FileOutputStream(file);
 
-        char c;
-        while ((c = (char) System.in.read()) != 'x') {
+        char c = (char) System.in.read();
+        while (c != 'x') {
             fileOutputStream.write(c);
-            System.out.println(c);
+            System.out.println("Zeichen geschrieben: "+(int)c);
+            c = (char) System.in.read();
         }
         fileOutputStream.flush();
         fileOutputStream.close();
