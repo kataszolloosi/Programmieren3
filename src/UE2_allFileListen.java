@@ -1,11 +1,7 @@
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.util.Arrays;
 
-import static java.nio.file.Path.*;
-
-public class UE2 {
+public class UE2_allFileListen {
     public static void main(String[] args) throws IOException {
         //Write a program, which lists all files / directories of the given directory (without sub directories)
         String dir = "C:\\";

@@ -1,9 +1,7 @@
 import java.io.File;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
-public class UE5 {
+public class UE5_directoryErstellen {
+    //Write a method, which creates multiple directories
     public static void main(String[] args) {
         File dir = new File("C:\\Users\\s53036\\Desktop\\Kata\\testordner\\blabla");
         createDirectory(dir);

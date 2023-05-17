@@ -1,7 +1,7 @@
 import java.io.File;
 import java.io.IOException;
 
-public class UE1 {
+public class UE1_FileInformation {
     public static void main(String[] args) throws IOException {
 
           /*
