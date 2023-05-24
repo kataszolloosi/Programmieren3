@@ -15,5 +15,6 @@ public class UE8_InputStreamReader {
             System.out.println(data);
             data=br.readLine();
         }
+        br.close();
     }
 }
