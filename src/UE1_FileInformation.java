@@ -22,7 +22,7 @@ public class UE1_FileInformation {
         File file = new File("test.txt");
 
         System.out.println("Does this file exist? " + file.exists());
-        System.out.println("Full Path to File: " + file.getAbsolutePath());
+        System.out.println("Full Path to File: " + file.getAbsolutePath());     //wo ist diese file
         System.out.println("Name of the File: "+file.getName());
         System.out.println("Parent Directory of the File: "+file.getParent());
         System.out.println("Path to this File: "+file.getPath());

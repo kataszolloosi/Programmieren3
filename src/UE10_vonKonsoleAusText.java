@@ -36,9 +36,9 @@ public class UE10_vonKonsoleAusText {
             data=br.readLine();
         }*/
 
-        // bufferedReader schließen
+        // bufferedReader schließen - andere hat zugreif nach schließen
         br.close();
-        // flush() löst das Schreiben aus
+        // flush() löst das Schreiben aus - schreib alles aus
         printWriter.flush();
         printWriter.close();
     }

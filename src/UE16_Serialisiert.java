@@ -1,6 +1,6 @@
 import java.io.*;
 
-public class UE16_Serialisiert  {
+public class UE16_Serialisiert  implements Serializable{
      /*
     Schreiben Sie ein Programm, das ein String- Objekt „Hallo Welt“ in eine
     Datei „object.dat“ serialisiert und anschließend aus dieser wieder ausliest und auf die
