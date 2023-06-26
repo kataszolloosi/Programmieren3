@@ -5,46 +5,46 @@ import java.util.ArrayList;
 
 public class FileReadWorker extends Worker implements Runnable {
     private String path;
-    private String line;
-    public ArrayList<String> lines = new ArrayList<>();
+    public ArrayList<String> lines;
     private static Object lock = new Object();
 
-    public FileReadWorker(String name, String path, String line) {
+    public FileReadWorker(String name, String path) {
         super(name);
         this.path = path;
-        this.line = line;
+        lines = new ArrayList<>();
     }
 
     @Override
-    protected void work() throws IOException, InterruptedException {
-        FileReader fr = new FileReader(path);
-        BufferedReader br = new BufferedReader(fr);
-
-            printStarted();
-
-            while(br.readLine() != null) {
+    protected void work() {
+        printStarted();
+        File f = new File(path);
+        System.out.println("Pfad zum File: " + f.getAbsolutePath());
+        FileReader fr = null;
+        BufferedReader br = null;
+        String one_line;
+        try {
+            fr = new FileReader(path);
+             br = new BufferedReader(fr);
+            while ((one_line = br.readLine()) != null) {
                 if (!shouldRun) {
                     break;
                 }
-                lines.add(line);
-                System.out.println(line);
+                System.out.println(one_line);
+                lines.add(one_line);
                 Thread.sleep(1000);
                 System.out.println(Thread.currentThread().getName());
             }
-        br.close();
+            br.close();
+        } catch (IOException | InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         printStopped();
     }
 
     @Override
     public void run() {
-        try {
-            synchronized (lock) {
-                work();
-            }
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
+        synchronized (lock) {
+            work();
         }
 
     }

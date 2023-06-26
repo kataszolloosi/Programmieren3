@@ -19,19 +19,22 @@ public abstract class Worker {
         shouldRun = true;
     }
 
-    protected abstract void work() throws IOException, InterruptedException;
+    protected abstract void work();
 
     protected void printStarted(){
-        System.out.println(name + " Wurde gestartet ");
+        //welche auf der Konsole den Namen des Workers, sowie „wurde gestartet“ ausgibt
+        System.out.println(name + " wurde gestartet ");
 
     }
 
     protected void printStopped() {
-        System.out.println(name + " Wurde gestoppt ");
+        //welche auf der Konsole den Namen des Workers, sowie „wurde gestoppt“ ausgibt
+        System.out.println(name + " wurde gestoppt ");
 
     }
 
     public void stopWorker(){
+        //welche shouldRun auf false setzt
         shouldRun = false;
     }
 

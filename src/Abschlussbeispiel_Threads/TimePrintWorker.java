@@ -9,20 +9,20 @@ public class TimePrintWorker extends Worker implements Runnable{
 
     @Override
     public void run() {
-        try {
-            work();
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+        work();
     }
 
     @Override
-    protected void work() throws InterruptedException {
+    protected void work() {
         printStarted();
-        while(shouldRun = true) {
+        while(shouldRun) {
             Date d = new Date();
-            System.out.println(d.toString());
-            Thread.sleep(1000);
+            System.out.println(d.toString() + Thread.currentThread().getName());
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
         }
         printStopped();
     }

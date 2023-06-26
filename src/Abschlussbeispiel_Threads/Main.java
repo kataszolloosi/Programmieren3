@@ -2,16 +2,18 @@ package Abschlussbeispiel_Threads;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
-        TimePrintWorker tpw = new TimePrintWorker("TimePrintWorker");
-        FileReadWorker frw = new FileReadWorker("FileReadWorker", "beispiel.txt", null);
+        TimePrintWorker w1 = new TimePrintWorker("TimePrintWorker");
+        Thread t1 = new Thread(w1);
 
-
-        Thread t1 = new Thread(tpw);
-        Thread t2 = new Thread(frw);
+        FileReadWorker w2 = new FileReadWorker("FileReadWorker", "test.txt");
+        Thread t2 = new Thread(w2);
 
         t1.start();
         t2.start();
-        t1.join();
+
         t2.join();
+
+        w1.stopWorker();
+
     }
 }
